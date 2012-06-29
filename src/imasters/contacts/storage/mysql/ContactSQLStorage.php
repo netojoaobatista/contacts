@@ -15,7 +15,7 @@ class ContactSQLStorage implements ContactStorage {
         $this->pdo = new PDO($dsn, $user, $pswd);
     }
 
-	/* (non-PHPdoc)
+    /* (non-PHPdoc)
      * @see ContactStorage::delete()
      */
     public function delete(Contact $contact) {
@@ -32,7 +32,7 @@ class ContactSQLStorage implements ContactStorage {
         return $stm->fetchAll();
     }
 
-	/* (non-PHPdoc)
+    /* (non-PHPdoc)
      * @see ContactStorage::findAll()
      */
     public function findAll() {
@@ -41,14 +41,14 @@ class ContactSQLStorage implements ContactStorage {
         return $this->fetchAll($stm);
     }
 
-	/* (non-PHPdoc)
+    /* (non-PHPdoc)
      * @see ContactStorage::findOne()
      */
     public function findOne($email) {
         $stm = $this->pdo->prepare('
-        	SELECT `name`,`photo`,`email`
-        	FROM `Contact`
-        	WHERE `email`=:email;'
+            SELECT `name`,`photo`,`email`
+            FROM `Contact`
+            WHERE `email`=:email;'
         );
 
         $stm->bindParam(':email', $email, PDO::PARAM_STR);
@@ -67,14 +67,14 @@ class ContactSQLStorage implements ContactStorage {
         return $stm->execute();
     }
 
-	/* (non-PHPdoc)
+    /* (non-PHPdoc)
      * @see ContactStorage::save()
      */
     public function save(Contact $contact) {
         $stm = $this->pdo->prepare('
             INSERT INTO
-            	`Contact`(`name`,`photo`,`email`)
-            	VALUES(:name,:photo,:email);'
+                `Contact`(`name`,`photo`,`email`)
+                VALUES(:name,:photo,:email);'
         );
 
         if ($this->bindValueAndExecuteInsertOrUpdate($stm, $contact) ) {
@@ -93,16 +93,16 @@ class ContactSQLStorage implements ContactStorage {
        return $this->pdo->exec('TRUNCATE `Contact`;');
     }
 
-	/* (non-PHPdoc)
+    /* (non-PHPdoc)
      * @see ContactStorage::update()
      */
     public function update(Contact $contact) {
         $stm = $this->pdo->prepare('
             UPDATE `Contact` SET
-            	`name`=:name,
-            	`photo`=:photo
+                `name`=:name,
+                `photo`=:photo
             WHERE
-            	`email`=:email;'
+                `email`=:email;'
         );
 
         return $this->bindValueAndExecuteInsertOrUpdate($stm, $contact);

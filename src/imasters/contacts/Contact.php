@@ -18,42 +18,42 @@ class Contact {
      */
     private $email;
 
-	/**
+    /**
      * @return string
      */
     public function getName() {
         return $this->name;
     }
 
-	/**
+    /**
      * @return string
      */
     public function getPhoto() {
         return $this->photo;
     }
 
-	/**
+    /**
      * @return string
      */
     public function getEmail() {
         return $this->email;
     }
 
-	/**
+    /**
      * @param string $name
      */
     public function setName($name) {
         $this->name = $name;
     }
 
-	/**
+    /**
      * @param string $photo
      */
     public function setPhoto($photo) {
         $this->photo = $photo;
     }
 
-	/**
+    /**
      * @param string $email
      */
     public function setEmail($email) {

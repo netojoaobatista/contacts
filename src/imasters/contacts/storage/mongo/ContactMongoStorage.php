@@ -21,7 +21,7 @@ class ContactMongoStorage implements ContactStorage {
         );
     }
 
-	/* (non-PHPdoc)
+    /* (non-PHPdoc)
      * @see ContactStorage::delete()
      */
     public function delete(Contact $contact) {
@@ -47,7 +47,7 @@ class ContactMongoStorage implements ContactStorage {
         return $contact;
     }
 
-	/* (non-PHPdoc)
+    /* (non-PHPdoc)
      * @see ContactStorage::findAll()
      */
     public function findAll() {
@@ -61,7 +61,7 @@ class ContactMongoStorage implements ContactStorage {
         return $contacts;
     }
 
-	/* (non-PHPdoc)
+    /* (non-PHPdoc)
      * @see ContactStorage::findOne()
      */
     public function findOne($email) {
@@ -72,7 +72,7 @@ class ContactMongoStorage implements ContactStorage {
         }
     }
 
-	/* (non-PHPdoc)
+    /* (non-PHPdoc)
      * @see ContactStorage::save()
      */
     public function save(Contact $contact) {
@@ -91,14 +91,14 @@ class ContactMongoStorage implements ContactStorage {
         return false;
     }
 
-	/* (non-PHPdoc)
+    /* (non-PHPdoc)
      * @see ContactStorage::truncate()
      */
     public function truncate() {
         return $this->contactsManagerCollection->remove();
     }
 
-	/* (non-PHPdoc)
+    /* (non-PHPdoc)
      * @see ContactStorage::update()
      */
     public function update(Contact $contact) {
